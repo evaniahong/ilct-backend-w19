@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<h1>{{ business.business_name }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<ul>
+    <li>GPS: ( {{ business.gps_x}}, {{ business.gps_y}})</li>
+    <li>Address: {{ business.address }}</li>
+    <li>Student Discount: {{ business.student_discount}}</li>
+    <li>Phone Number: {{ business.phone_number}}</li>
+</ul>
+
+</html>
