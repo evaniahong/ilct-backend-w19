@@ -26,6 +26,7 @@ class Command(BaseCommand):
 
     @transaction.atomic
     def handle(self, *args, **options):
+        Business.objects.all().delete()
         filename = options['filename']
         limit = int(options['max'])
 
@@ -45,7 +46,9 @@ class Command(BaseCommand):
                              address = current_cell[3],
                              student_discount = current_cell[4],
                              phone_number = current_cell[5])
+                print(b)
                 try:
-                    b.save()
+                    if Business.objects.get(business_name=current_cell[0])==None: b.save()
                 except:
-                    print("error in importing item")
+                    b.save()
+
