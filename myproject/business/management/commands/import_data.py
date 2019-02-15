@@ -26,7 +26,6 @@ class Command(BaseCommand):
 
     @transaction.atomic
     def handle(self, *args, **options):
-        Business.objects.all().delete()
         filename = options['filename']
         limit = int(options['max'])
 
